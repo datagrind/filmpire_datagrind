@@ -4,6 +4,7 @@ import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-materi
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
+// eslint-disable-next-line import/no-cycle
 import { Sidebar } from '..';
 import useStyles from './styles';
 
@@ -23,7 +24,7 @@ const NavBar = () => {
               color="inherit"
               edge="start"
               style={{ outline: 'none' }}
-              onClick={() => {}}
+              onClick={() => setmobileOpen((prevMobileOpen) => !prevMobileOpen)}
               className={classes.menuButton}
             >
               <Menu />
@@ -39,7 +40,7 @@ const NavBar = () => {
                 Login &nbsp; <AccountCircle />
               </Button>
             ) : (
-              <Button color="inheErit" component={Link} to="/profile/:id" className={classes.linkButton} onClick={() => {}}>
+              <Button color="inherit" component={Link} to="/profile/:id" className={classes.linkButton} onClick={() => {}}>
                 {!isMobile && <>My Movies &nbsp;</>}
                 <Avatar style={{ width: 30, height: 30 }} alt="Profile" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" />
               </Button>
@@ -55,6 +56,7 @@ const NavBar = () => {
               variant="temporary"
               anchor="right"
               open={mobileOpen}
+              onClose={() => setmobileOpen((prevMobileOpen) => !prevMobileOpen)}
               classes={{ paper: classes.drawerPaper }}
               ModalProps={{ keepMounted: true }}
 
