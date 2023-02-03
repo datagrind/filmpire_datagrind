@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
 // eslint-disable-next-line import/no-cycle
-import { Sidebar } from '..';
+import { Sidebar, Search } from '..';
 import useStyles from './styles';
 
 const NavBar = () => {
@@ -33,7 +33,7 @@ const NavBar = () => {
           <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => {}}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 /> }
           </IconButton>
-          {!isMobile && 'Search... '}
+          {!isMobile && <Search />}
           <div>
             {!isAuthenticated ? (
               <Button color="inherit" onClick={() => {}}>
@@ -47,7 +47,7 @@ const NavBar = () => {
             )}
           </div>
         </Toolbar>
-        {isMobile && 'Search... '}
+        {isMobile && <Search />}
       </AppBar>
       <div>
         <nav className={classes.drawer}>
